@@ -47,8 +47,6 @@ export class WeatherService {
     let chartValues: { value: number; name: string; }[] = [];
     let chartData = []
 
-    // console.log(list.length)
-
     for(let i = 0; i < list.length ; i += 4){
       chartValues.push({
         value: list[i].main.temp,

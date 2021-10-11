@@ -12,12 +12,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { LocationSearchComponent } from './components/location-search/location-search.component';
 import { WeatherCardComponent } from './components/weather-card/weather-card.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LocationSearchComponent,
     WeatherCardComponent,
+    ChartComponent,
 
   ],
   imports: [

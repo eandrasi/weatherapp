@@ -1,0 +1,10 @@
+<section *ngIf="temps" fxLayoutAlign="center">
+  <ngx-charts-line-chart
+  [results]="temps"
+  [view]="view"
+
+  [xAxis]="xAxis"
+  [yAxis]="yAxis"
+  (select)="onSelect($event)"
+  ></ngx-charts-line-chart>
+</section>
