@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ICity } from './models/ICity';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'weatherapp';
+  public citySelectedEvent: ICity | undefined;
+
+  selectedCityEvent(event: ICity){
+    this.citySelectedEvent = event;
+  }
+
+
 }

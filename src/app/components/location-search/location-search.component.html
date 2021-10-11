@@ -1,0 +1,16 @@
+<form fxLayout="column" class="location-input" fxLayoutAlign="center center">
+  <mat-form-field appearance="fill">
+    <input type="text"
+    placeholder="Pick a location"
+    matInput
+    [formControl]="formControl"
+    [matAutocomplete]="auto">
+    <mat-icon matSuffix>location_searching</mat-icon>
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option.name"
+      (onSelectionChange)="onSelectedOption(option)">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

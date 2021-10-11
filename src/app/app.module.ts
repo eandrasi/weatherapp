@@ -10,10 +10,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { LocationSearchComponent } from './components/location-search/location-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LocationSearchComponent,
 
   ],
   imports: [
