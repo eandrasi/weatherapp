@@ -12,6 +12,4 @@ export class AppComponent {
   selectedCityEvent(event: ICity){
     this.citySelectedEvent = event;
   }
-
-
 }
