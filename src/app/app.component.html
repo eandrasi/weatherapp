@@ -1,5 +1,11 @@
 <section class="container" fxLayoutGap="20px">
   <app-location-search (selectedCity)="selectedCityEvent($event)"></app-location-search>
+
+  <app-map
+  [selectedCity]="citySelectedEvent"
+  (mapPosition)="selectedCityEvent($event)"
+  ></app-map>
+
   <app-weather-card [selectedCity]="citySelectedEvent"></app-weather-card>
   <app-chart [selectedCity]="citySelectedEvent"></app-chart>
 </section>

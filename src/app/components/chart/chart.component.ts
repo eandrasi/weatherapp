@@ -15,7 +15,7 @@ export class ChartComponent implements OnInit, OnChanges {
 
   @Input() selectedCity: ICity | undefined;
 
-  view: BaseChartComponent["view"] = [500, 300];
+  view: BaseChartComponent["view"] = [500, 200];
   // legend: boolean = false;
   showLabels: boolean = true;
   animations: boolean = true;

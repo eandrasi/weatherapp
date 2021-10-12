@@ -1,0 +1,13 @@
+<section class="container" fxLayoutAlign="center">
+  <google-map
+  #gmapContainer
+  height="200px"
+  [options]="options"
+  (mapClick)="click($event)"
+  >
+    <map-marker
+    [position]="marker.position"
+    [options]="marker.options"
+    ></map-marker>
+  </google-map>
+</section>

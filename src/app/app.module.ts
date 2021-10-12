@@ -13,6 +13,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { LocationSearchComponent } from './components/location-search/location-search.component';
 import { WeatherCardComponent } from './components/weather-card/weather-card.component';
 import { ChartComponent } from './components/chart/chart.component';
+import { MapComponent } from './components/map/map.component';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { ChartComponent } from './components/chart/chart.component';
     LocationSearchComponent,
     WeatherCardComponent,
     ChartComponent,
+    MapComponent,
 
   ],
   imports: [
@@ -29,7 +32,8 @@ import { ChartComponent } from './components/chart/chart.component';
     MaterialModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    NgxChartsModule
+    NgxChartsModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
