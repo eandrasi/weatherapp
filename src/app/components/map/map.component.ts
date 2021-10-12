@@ -47,7 +47,6 @@ export class MapComponent implements OnInit, OnChanges {
         this.centerMap(this.city.lat, this.city.lon)
       }
     }
-
   }
 
   click(event: google.maps.MapMouseEvent) {
@@ -64,7 +63,7 @@ export class MapComponent implements OnInit, OnChanges {
     let mapPosition = <ICity>{
       lat: lat,
       lon: lng,
-      name: Number(lat).toFixed(3) + " - " + Number(lng).toFixed(2),
+      name: Number(lat).toFixed(3) + " - " + Number(lng).toFixed(3),
       href: ""
     }
 

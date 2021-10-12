@@ -3,8 +3,6 @@ import { FormControl } from '@angular/forms';
 import { LocationService } from 'src/app/services/location.service';
 import { map, startWith, debounceTime, tap, switchMap, } from 'rxjs/operators';
 import { ICity } from 'src/app/models/ICity';
-// import { ILocationSuggestion } from 'src/app/models/ILocationSuggestion';
-// import { ICoordinates } from 'src/app/models/ICoordinates';
 
 @Component({
   selector: 'app-location-search',
@@ -14,7 +12,6 @@ import { ICity } from 'src/app/models/ICity';
 export class LocationSearchComponent implements OnInit {
   formControl = new FormControl();
   options: any;
-  // city = <ICity>{};
 
   @Output() selectedCity = new EventEmitter<ICity>();
 
@@ -23,12 +20,11 @@ export class LocationSearchComponent implements OnInit {
   ngOnInit(): void {
     this.formControl.valueChanges.pipe(
       debounceTime(200),
-      tap(() => {
-        this.options = []
-      }), switchMap(
+      switchMap(
         value => this.locationService.getCitySuggestion(value)
       )
     ).subscribe(data => {
+      this.options = []
       let count = data.count
       for(let i = 0; i < count && i < 3; i++){
         this.options.push({
@@ -43,15 +39,13 @@ export class LocationSearchComponent implements OnInit {
 
     this.formControl.setValue('')
 
-
     this.locationService.getCityCoordinates(option.href).subscribe(data => {
-      let city = <ICity>{};
-
-      city.lat=data.location.latlon.latitude
-      city.lon=data.location.latlon.longitude
-      city.name=option.name.split(',')[0]
-      city.href=option.href
-
+      let city = <ICity>{
+        lat: data.location.latlon.latitude,
+        lon: data.location.latlon.longitude,
+        name: option.name.split(',')[0],
+        href: option.href
+      };
       this.selectedCity.emit(city)
     })
   }

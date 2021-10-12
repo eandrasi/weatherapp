@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs'
 import { tap, map, catchError } from 'rxjs/operators';
 import { ICity } from '../models/ICity';
+import { IWeatherData } from '../models/IWeatherData';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,12 @@ export class WeatherService {
     .set('appid', this.apiKey)
 
     return this.http.get(url, {params})
+      .pipe(map(data => {
+        return this.parseWeatherToIWeatherData(data);
+      }),
+      catchError(error => {
+        return throwError(error);
+      }))
   }
 
   //TODO: don't forget to cath it
@@ -35,11 +42,35 @@ export class WeatherService {
 
     return this.http.get(url, {params})
       .pipe(map(data => {
-        return this.chartDataBuilder(data)
+        return this.chartDataBuilder(data);
       }),
       catchError(error =>{
-        return throwError(error)
+        return throwError(error);
       }))
+  }
+
+  parseWeatherToIWeatherData(data: any): IWeatherData {
+    let response: IWeatherData = {
+      id: data.weather[0].id,
+      main: data.weather[0].main,
+      description: data.weather[0].description,
+      icon: data.weather[0].icon,
+      temp: data.main.temp,
+      feels_like: data.main.feels_like,
+      temp_min: data.main.temp_min,
+      temp_max: data.main.temp_max,
+      pressure: data.main.pressure,
+      humidity: data.main.humidity,
+      wind: data.wind.speed,
+      clouds: data.clouds.all,
+      dt: data.dt,
+      timezone: data.timezone,
+      cod: data.cod,
+      sunrise: data.sys.sunrise,
+      sunset: data.sys.sunset
+    }
+
+    return response;
   }
 
   chartDataBuilder(data: any): Array<any>{
