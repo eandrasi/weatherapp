@@ -1,16 +1,10 @@
-<section *ngIf="city && currentWeather" class="weather-card" fxLayout fxLayoutAlign="center" >
-  <mat-card class="matcard-test" fxFlex="500px">
+<section *ngIf="city && currentWeather" class="weather-card" fxLayout="column" fxLayoutAlign="center" >
     <mat-card-title fxLayoutAlign="end">{{city.name}}</mat-card-title>
-    <!-- <mat-card-content> -->
 
       <section class="container" fxLayout="column" fxLayoutAlign="center">
         <section class="main" fxLayoutAlign="center">
           <h1 id="currentTemp" class="mat-display-4">{{currentWeather.temp | number:'1.0-1'}}°C</h1>
           <span><img src="assets/images/10d@2x.png" alt="image"></span>
-          <!-- <section fxLayout="column" fxLayoutAlign="center center">
-            <img src="assets/10d@2x.png" alt="image">
-           <h3 class="mat-subheading-2">{{currentWeather.main}}</h3>
-          </section> -->
         </section>
 
 
@@ -34,6 +28,4 @@
         </section>
       </section>
 
-    <!-- </mat-card-content> -->
-  </mat-card>
 </section>

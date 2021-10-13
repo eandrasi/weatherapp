@@ -1,11 +1,18 @@
-<section class="container" fxLayoutGap="20px">
-  <app-location-search (selectedCity)="selectedCityEvent($event)"></app-location-search>
+<section class="container" fxLayoutGap="20px" fxLayout="column" fxLayoutAlign="center center">
+  <section class="search-location">
+    <app-location-search (selectedCity)="selectedCityEvent($event)"></app-location-search>
+  </section>
 
-  <app-map
-  [selectedCity]="citySelectedEvent"
-  (mapPosition)="selectedCityEvent($event)"
-  ></app-map>
+  <section class="weather-display">
+    <mat-card class="mat-elevation-z5" fxFlex="500px">
+      <app-map
+      [selectedCity]="citySelectedEvent"
+      (mapPosition)="selectedCityEvent($event)"
+      ></app-map>
 
-  <app-weather-card [selectedCity]="citySelectedEvent"></app-weather-card>
-  <app-chart [selectedCity]="citySelectedEvent"></app-chart>
+      <app-weather-card [selectedCity]="citySelectedEvent"></app-weather-card>
+      <app-chart [selectedCity]="citySelectedEvent"></app-chart>
+
+    </mat-card>
+  </section>
 </section>

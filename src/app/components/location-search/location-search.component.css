@@ -1,0 +1,15 @@
+mat-form-field {
+  width: 400px;
+  margin-top: 24px;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 16px;
+  background-color:lightcyan;
+}
+
+
+::ng-deep .mat-autocomplete-panel{
+  border-radius: 16px;
+  background-color:lightcyan;
+}
